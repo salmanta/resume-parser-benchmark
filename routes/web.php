@@ -15,7 +15,7 @@ use Swaggest\JsonDiff\JsonDiff;
 */
 
 Route::get('/', function () {
-    return ;
+    return redirect('/admin');
 //    $resume = \App\Models\Resume::latest()->first();
 //    $resumeFile = \Illuminate\Support\Facades\Storage::disk('public')->path($resume->id . '.pdf');
 //

@@ -9,9 +9,9 @@ class ArrayDiffer extends Entry
     protected string $view = 'infolists.components.array-differ';
 
     public function generateDiff(){
-        $openAIParse = $this->getRecord()->parserResults()->where('name', 'openai')->first()->data;
-        $affindaParse = $this->getRecord()->parserResults()->where('name', 'affinda')->first()->data;
-        $daxtraParse = $this->getRecord()->parserResults()->where('name', 'daxtra')->first()->data;
+        $openAIParse = $this->getRecord()->parserResults()->where('name', 'openai')->first()->data ?? [];
+        $affindaParse = $this->getRecord()->parserResults()->where('name', 'affinda')->first()->data ?? [];
+        $daxtraParse = $this->getRecord()->parserResults()->where('name', 'daxtra')->first()->data??[];
 
         $return = 'OpenAI vs Affinda';
         $return .= '<br>';
