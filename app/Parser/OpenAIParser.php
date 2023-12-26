@@ -10,7 +10,7 @@ class OpenAIParser implements ResumeParserContract
     private $OCR_API_URL = 'https://api.ocr.space/parse/image';
     private $OCR_API_KEY = 'K83468122788957'; // Use appropriate mechanism to secure the API key
     private $OPENAI_API_URL = 'https://api.openai.com/v1/chat/completions';
-    private $OPENAI_API_KEY = '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'; // Secure the API key
+    private $OPENAI_API_KEY = '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='; // Secure the API key
 
 
     public function getName(): string

@@ -29,7 +29,7 @@ class CreateResume extends CreateRecord
             $parserClass = new ($parser['class']);
             $filePath = Storage::disk('public')->path($model->id . '.pdf');
             $data = $parserClass->parse($filePath);
-            // add to ParserResume
+
             $model->parserResults()->create([
                 'name' => $parserClass->getName(),
                 'data' => $data,
