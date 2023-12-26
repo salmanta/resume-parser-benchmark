@@ -25,24 +25,24 @@ class OpenAIParser implements ResumeParserContract
 
         $parsedResume = new \App\Contracts\ParsedResumeDTO();
 
-        $parsedResume->name = $data['full_name'];
-        $parsedResume->email = $data['email'];
-        $parsedResume->phone = $data['phone_number'];
+        $parsedResume->name = $data['full_name'] ?? '';
+        $parsedResume->email = $data['email'] ?? '';
+        $parsedResume->phone = $data['phone_number'] ?? '';
 
         $parsedResume->worksExperience = [];
         foreach ($data['candidate_experiences'] as $workExperience) {
             // "effective_date_range": "2021-06-01 to PRESENT"
-            $startDate = explode(' to ', $workExperience['effective_date_range'])[0];
-            $endDate = explode(' to ', $workExperience['effective_date_range'])[1] ?? null;
+            $startDate = explode(' to ', $workExperience['effective_date_range'])[0] ?? '';
+            $endDate = explode(' to ', $workExperience['effective_date_range'])[1] ?? '';
 
 
             $parsedWorkExperience = new \App\Contracts\ResumeWorkExperienceDTO();
-            $parsedWorkExperience->company = $workExperience['company_name'];
-            $parsedWorkExperience->position = $workExperience['title'];
-            $parsedWorkExperience->startDate = $startDate;
-            $parsedWorkExperience->endDate = $endDate;
-            $parsedWorkExperience->summary = $workExperience['description'];
-            $parsedResume->worksExperience[] = $parsedWorkExperience;
+            $parsedWorkExperience->company = $workExperience['company_name'] ?? '';
+            $parsedWorkExperience->position = $workExperience['title'] ?? '';
+            $parsedWorkExperience->startDate = $startDate ?? '';
+            $parsedWorkExperience->endDate = $endDate ?? '';
+            $parsedWorkExperience->summary = $workExperience['description'] ?? '';
+            $parsedResume->worksExperience[] = $parsedWorkExperience ?? '';
         }
 
         return $parsedResume->toArray();

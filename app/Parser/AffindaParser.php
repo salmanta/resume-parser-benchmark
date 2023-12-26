@@ -32,18 +32,18 @@ class AffindaParser implements \App\Contracts\ResumeParserContract
         $data = $data['resumes'][0]['data'];
         $parsedResume = new \App\Contracts\ParsedResumeDTO();
 
-        $parsedResume->name = $data['name']['raw'];
-        $parsedResume->email = $data['emails'][0];
-        $parsedResume->phone = $data['phoneNumbers'][0];
+        $parsedResume->name = $data['name']['raw'] ?? '';
+        $parsedResume->email = $data['emails'][0] ?? '';
+        $parsedResume->phone = $data['phoneNumbers'][0] ?? '';
 
         $parsedResume->worksExperience = [];
         foreach ($data['workExperience'] as $workExperience) {
             $parsedWorkExperience = new \App\Contracts\ResumeWorkExperienceDTO();
-            $parsedWorkExperience->company = $workExperience['organization'];
-            $parsedWorkExperience->position = $workExperience['jobTitle'];
-            $parsedWorkExperience->startDate = $workExperience['dates']['startDate'];
-            $parsedWorkExperience->endDate = $workExperience['dates']['endDate'] ?? null;
-            $parsedWorkExperience->summary = $workExperience['jobDescription'];
+            $parsedWorkExperience->company = $workExperience['organization'] ?? '';
+            $parsedWorkExperience->position = $workExperience['jobTitle'] ?? '';
+            $parsedWorkExperience->startDate = $workExperience['dates']['startDate'] ?? '';
+            $parsedWorkExperience->endDate = $workExperience['dates']['endDate'] ?? '';
+            $parsedWorkExperience->summary = $workExperience['jobDescription'] ?? '';
             $parsedResume->worksExperience[] = $parsedWorkExperience;
         }
 
