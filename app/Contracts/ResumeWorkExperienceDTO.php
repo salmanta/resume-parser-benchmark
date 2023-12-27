@@ -18,7 +18,7 @@ class ResumeWorkExperienceDTO
             'position' => $this->position,
             'startDate' => $this->startDate,
             'endDate' => $this->endDate,
-//            'summary' => $this->summary,
+            'summary' => $this->summary,
 //            'highlights' => $this->highlights,
         ];
     }
