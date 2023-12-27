@@ -8,10 +8,11 @@ class ArrayDiffer extends Entry
 {
     protected string $view = 'infolists.components.array-differ';
 
-    public function generateDiff(){
+    public function generateDiff()
+    {
         $openAIParse = $this->getRecord()->parserResults()->where('name', 'openai')->first()->data ?? [];
         $affindaParse = $this->getRecord()->parserResults()->where('name', 'affinda')->first()->data ?? [];
-        $daxtraParse = $this->getRecord()->parserResults()->where('name', 'daxtra')->first()->data??[];
+        $daxtraParse = $this->getRecord()->parserResults()->where('name', 'daxtra')->first()->data ?? [];
 
         $return = 'OpenAI vs Affinda';
         $return .= '<br>';
@@ -35,7 +36,8 @@ class ArrayDiffer extends Entry
         return $return;
     }
 
-    private function compare_arrays($array1, $array2, $path = '') {
+    public function compare_arrays($array1, $array2, $path = '')
+    {
         $differences = [];
 
         // Convert keys of both arrays to lower case
@@ -77,5 +79,20 @@ class ArrayDiffer extends Entry
         }
 
         return $differences;
+    }
+
+    public function getOpenAi()
+    {
+        return $this->getRecord()->parserResults()->where('name', 'openai')->first()->data ?? [];
+    }
+
+    public function getAffinda()
+    {
+        return $this->getRecord()->parserResults()->where('name', 'affinda')->first()->data ?? [];
+    }
+
+    public function getDaxtra()
+    {
+        return $this->getRecord()->parserResults()->where('name', 'daxtra')->first()->data ?? [];
     }
 }
