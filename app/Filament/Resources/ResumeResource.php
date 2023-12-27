@@ -44,7 +44,7 @@ class ResumeResource extends Resource
                     ->searchable()
                     ->sortable(),
 
-            ])
+            ])->defaultSort('id', 'desc')
             ->filters([
                 //
             ])
