@@ -39,8 +39,8 @@ class CreateResume extends CreateRecord
         return $model;
     }
 
-    protected function getRedirectUrl(): string
-    {
-        return $this->getResource()::getUrl('view', ['record' => $this->record]);
-    }
+//    protected function getRedirectUrl(): string
+//    {
+//        return $this->getResource()::getUrl('view', ['record' => $this->record]);
+//    }
 }

@@ -65,9 +65,9 @@ class ResumeResource extends Resource
             ->schema([
                 Infolists\Components\TextEntry::make('name'),
                 Infolists\Components\RepeatableEntry::make('parserResults')->schema([
-                    Infolists\Components\TextEntry::make('name'),
-                    ArrayViewer::make('data')
-                ]),
+                    Infolists\Components\TextEntry::make('name')->name('Parser Name'),
+                    ArrayViewer::make('data'),
+                ])->columnSpanFull(),
                 ArrayDiffer::make('Diffs')
                     ->columnSpanFull()
             ]);

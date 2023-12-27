@@ -9,5 +9,5 @@ return [
     ],
     'openai' => [
         'class' => \App\Parser\OpenAIParser::class,
-    ],
+    ]
 ];
