@@ -27,7 +27,7 @@ class DaxtraParser implements ResumeParserContract
         $parsedResume->phone = $data['StructuredResume']['ContactMethod']['Telephone_mobile'] ?? '';
 
         $parsedResume->worksExperience = [];
-        foreach ($data['StructuredResume']['EmploymentHistory'] as $workExperience) {
+        foreach ($data['StructuredResume']['EmploymentHistory']??[] as $workExperience) {
 
             $parsedWorkExperience = new \App\Contracts\ResumeWorkExperienceDTO();
             $parsedWorkExperience->company = $workExperience['EmployerOrgName'] ?? ($workExperience['OrgName'] ?? '');
