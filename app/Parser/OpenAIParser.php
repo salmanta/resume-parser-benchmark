@@ -117,7 +117,10 @@ class OpenAIParser implements ResumeParserContract
         "type": "object",
         "properties": {
           "title": { "type": "string" },
-          "description": { "type": "string" },
+          "description": {
+            "type": "string",
+            "description": "description of the job role, should not be summerized it"
+           },
           "region_name": { "type": "string" },
           "company_name": { "type": "string" },
           "experience_type": { "type": "string" },
@@ -190,6 +193,7 @@ class OpenAIParser implements ResumeParserContract
             // Post request to OpenAI API
         $openAIData = [
             'model' => 'gpt-3.5-turbo-1106',
+            'temperature' => 0,
             'response_format' => ['type' => 'json_object'],
             'messages' => [
                 ['role' => 'system', 'content' => 'You are a helpful assistant designed to output JSON'],
