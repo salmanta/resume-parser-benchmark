@@ -27,7 +27,7 @@
                         <tr>
                             <td style="border: 1px solid black; padding: 8px;">{{ $work['company'] }}</td>
                             <td style="border: 1px solid black; padding: 8px;">{{ $work['position'] }}</td>
-                            <td style="border: 1px solid black; padding: 8px;">{{ $work['summary'] }}</td>
+                            <td style="border: 1px solid black; padding: 8px;">{{ $work['summary']??'' }}</td>
                             <td style="border: 1px solid black; padding: 8px;">{{ $work['startDate'] }}</td>
                             <td style="border: 1px solid black; padding: 8px;">{{ $work['endDate'] }}</td>
                         </tr>
