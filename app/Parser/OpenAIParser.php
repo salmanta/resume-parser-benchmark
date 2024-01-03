@@ -119,7 +119,7 @@ class OpenAIParser implements ResumeParserContract
           "title": { "type": "string" },
           "description": {
             "type": "string",
-            "description": "description of the job role, should not be summerized it"
+            "description": "description of the job role, not summarized, not shortened, full text"
            },
           "region_name": { "type": "string" },
           "company_name": { "type": "string" },
