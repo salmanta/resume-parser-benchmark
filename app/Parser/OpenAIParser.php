@@ -74,7 +74,7 @@ class OpenAIParser implements ResumeParserContract
         }
 
         // Construct LLMPrompt
-        $llmPrompt = 'This is a text extracted from a resume. generate a JSON based on the following JSON schema:\n\n';
+        $llmPrompt = 'This is a text extracted from a resume. generate a JSON based on the following JSON schema, do not shorten or summarize any parts of the text, if bullet-pointed or in similar formats, keep the format:\n\n';
         $llmPrompt .= '
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
